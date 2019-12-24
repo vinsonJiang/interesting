@@ -252,6 +252,36 @@ html, body {
     left: -10px;
 }
 
+
+.base1 {
+    width: 100%;
+    height: 100px;
+    background: #fff;
+    position: absolute;
+    /*transform: rotate(45deg);*/
+    border-radius: 10px;
+    z-index: 10;
+}
+
+.footer1 {
+    width: 100%;
+    height: 100px;
+    background: #fff;
+    position: fixed;
+    bottom: 0px;
+    z-index: 10;
+    animation: upto 1.4s 1.8s backwards;
+}
+@keyframes upto {
+    from {
+        bottom: -100px;
+    }
+    to {
+        bottom: 0px;
+    }
+}
+
+
 .base {
     width: 1000px;
     height: 1000px;
@@ -261,7 +291,6 @@ html, body {
     border-radius: 100px;
     z-index: 10;
 }
-
 
 /* World */
 .world {
