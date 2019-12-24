@@ -59,6 +59,7 @@ html, body {
 
 .article {
     display: none;
+    overflow: hidden;
 }
 
 .header .mask, .header .world {

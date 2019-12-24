@@ -84,7 +84,7 @@
     document.addEventListener("touchmove",function(e){
         e.preventDefault();
         e.stopPropagation();
-    },false);
+    },{passive:false});
     $(document).ready(function() {
 
         /* random trees */
