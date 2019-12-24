@@ -31,7 +31,8 @@
             context.save();
             var scale = (this.z + focallength) / (2 * focallength);
             var scale = 1;
-            context.fillStyle="#ffffff";
+            context.fillStyle = "rgba(" + this.color.a + "," + this.color.b + "," + this.color.c + "," + scale + ")";
+            // context.fillStyle="#ffffff";
             context.fillRect(canvas.width / 2 + (this.x - canvas.width / 2), canvas.height / 2 + (this.y - canvas.height / 2), 2, 2)
             context.restore();
         }
@@ -52,14 +53,14 @@
         for (var i = 0; i < text.length; i++) {
             context.save();
             var fontSize = Math.random() * 100 + 100;
-            fontSize = 100;
+            fontSize = canvas.width / 12;
             context.font = fontSize + "px bold";
             context.textAlign = "center";
             context.textBaseline = "middle";
             var code = text.charAt(i);
             context.fillStyle = "rgba(" + parseInt(Math.random() * 125 + 130) + "," + parseInt(Math.random() * 125 + 130) + "," + parseInt(Math.random() * 125 + 130) + " , 1)";
-            context.fillStyle="#ffffff";
-            context.fillText(code, canvas.width / 2 - ((text.length / 2 - i) * 80), canvas.height / 2);
+            // context.fillStyle="#ffffff";
+            context.fillText(code, canvas.width / 2 - ((text.length / 2 - i) * fontSize / 1.5), canvas.height / 2);
             context.restore();
         }
         dots = getimgData();
@@ -92,7 +93,7 @@
         // context.globalAlpha = 0.1;
         context.fillRect(0, 0, canvas.width, canvas.height);
         context.restore();
-        var sulv = 0.1;
+        var sulv = 0.04;
         dots.forEach(function() {
             var dot = this;
             if (derection) {
@@ -103,7 +104,7 @@
                     // if (thisTime - lastTime > 300) derection = false;
                 } else {
                     dot.x = dot.x + (dot.dx - dot.x) * sulv;
-                    dot.y = dot.y + (dot.dy - dot.y) * sulv - 20;
+                    dot.y = dot.y + (dot.dy - dot.y - 200) * sulv;
                     dot.z = dot.z + (dot.dz - dot.z) * sulv;
                     lastTime = +new Date()
                 }

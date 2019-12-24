@@ -73,7 +73,7 @@ function Firework( sx, sy, tx, ty ) {
 		this.coordinates.push( [ this.x, this.y ] );
 	}
 	this.angle = Math.atan2( ty - sy, tx - sx );
-	this.speed = 2;
+	this.speed = 5;
 	this.acceleration = 1.05;
 	this.brightness = random( 50, 70 );
 	// circle target indicator radius
@@ -268,6 +268,13 @@ canvas.addEventListener( 'mouseup', function( e ) {
 	mousedown = false;
 });
 
+var clicked = false;
 // once the window loads, we are ready for some fireworks!
-window.onload = loop;
+// window.onload = loop;
+$('.tree').click(function() {
+	if(!clicked) {
+		loop();
+		clicked = true;
+	}
 
+})
